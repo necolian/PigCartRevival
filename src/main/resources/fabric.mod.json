@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "pigcartrevival",
+  "version": "${version}",
+
+  "name": "PigCartRevival",
+  "description": "",
+  "authors": [],
+  "contact": {},
+
+  "license": "All-Rights-Reserved",
+  "icon": "assets/pigcartrevival/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": ["com.necolian.pigcartrevival.client.PigCartRevivalClient"],
+    "main": ["com.necolian.pigcartrevival.PigCartRevival"]
+  },
+
+  "mixins": [
+    "pigcartrevival.mixins.json"
+    ,{
+      "config": "pigcartrevival.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/entity/vehicle/DefaultMinecartController": ["com/necolian/pigcartrevival/IMixinDefaultMinecartController"]
+    }
+  }
+}
